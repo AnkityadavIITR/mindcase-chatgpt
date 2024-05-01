@@ -6,7 +6,6 @@ import { useAuthStore } from "@/utils/authstore";
 import { Button } from "../ui/button";
 import { EyeOffIcon, Eye } from "lucide-react";
 import Link from "next/link";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const Form = ({ type }) => {
   const signInWithGoogle = useAuthStore((state) => state.signInwithGoogle);
@@ -141,7 +140,7 @@ const Form = ({ type }) => {
           </h2>
         ) : (
           <h2 className="mt-5  flex justify-center text-[13px]">
-            Don't have an account?{" "}
+            Don&apos;t have an account?{" "}
             <Link
               href="/auth/signup"
               className="text-customGreen hover:underline text-[14px] font-medium"

@@ -4,11 +4,11 @@ import { useTheme } from "next-themes";
 import { useEffect } from "react";
 import Form from "@/components/auth/form";
 
-const page = () => {
+const Login = () => {
   const { theme, setTheme } = useTheme();
   useEffect(() => {
     setTheme("light");
-  }, []);
+  }, [setTheme]);
 
   return (
     <main className="flex flex-col min-h-screen bg-white items-center justify-center">
@@ -31,4 +31,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Login;
