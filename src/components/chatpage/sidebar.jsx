@@ -4,9 +4,11 @@ import { useAuthStore } from "@/utils/authstore";
 import { Button } from "../ui/button";
 import ChatArray from "./chatArray";
 import Link from "next/link";
+import UserAvatar from "./userAvatar";
 
 const Sidebar = () => {
   const user = useAuthStore((state) => state.user);
+  console.log(user);
   return (
     <div className="hidden md:flex flex-col w-[250px] dark:bg-[#171717] bg-[#E2E8F0] border-r h-screen p-4 relative">
       <div className="flex">
@@ -22,7 +24,7 @@ const Sidebar = () => {
       </div>
       {user && <ChatArray />}
       {user ? (
-        <h1></h1>
+        <UserAvatar/>
       ) : (
         <div className="flex absolute bottom-3 left-3 right-3 flex-col gap-y-2">
           <h2 className="text-[13px] dark:text-white font-semibold">

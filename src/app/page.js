@@ -11,9 +11,7 @@ export default function Home() {
   const signUp = useAuthStore((state) => state.signUp);
   const user=useAuthStore((state)=>state.user)
 
-  const handleClick=async()=>{
-    await signInwithGoogle(setLoading);
-  }
+
   
   return (
     <main className="flex min-h-screen items-center justify-between">

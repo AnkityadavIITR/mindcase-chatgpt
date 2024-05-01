@@ -3,8 +3,7 @@ import { create } from "zustand";
 
 const useAuthStore = create((set) => ({
   user: null,
-  signInwithGoogle: async (setLoading) => {
-    setLoading(true);
+  signInwithGoogle: async () => {
     try {
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider: "google",
@@ -20,9 +19,8 @@ const useAuthStore = create((set) => ({
 
       set({ user:data });
     } catch (e) {
-    } finally {
-      setLoading(false);
-    }
+      console.log(e);
+    } 
   },
   signUpWithEmailAndPassword: async (email, password) => {
     try {
