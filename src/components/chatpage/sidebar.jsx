@@ -1,17 +1,48 @@
-import React from "react";
+"use client";
+import React, { use, useEffect, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useAuthStore } from "@/utils/authstore";
 import { Button } from "../ui/button";
 import ChatArray from "./chatArray";
 import Link from "next/link";
 import UserAvatar from "./userAvatar";
+import supabase from "@/lib/supabase";
+import { NotebookPen } from "lucide-react";
+import useChatStore from "@/utils/chatstore";
 
 const Sidebar = () => {
   const user = useAuthStore((state) => state.user);
-  console.log(user);
+  const chats = useChatStore((state) => state.chats);
+  const clearChats = useChatStore((state) => state.clearChats);
+
+
+  const [globalChat, setGlobalChat] = useState(null);
+  const fetchChats = async () => {
+    try {
+      let { data: messages, error } = await supabase
+        .from("messages")
+        .select("*")
+        .eq("user_id", user.id);
+      setGlobalChat(messages);
+      console.log(messages);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const handleClear = () => {
+    clearChats();
+  };
+
+  useEffect(() => {
+    if (user) {
+      fetchChats();
+    }
+    console.log("hey");
+  }, [user]);
   return (
-    <div className="hidden md:flex flex-col w-[250px] dark:bg-[#171717] bg-[#E2E8F0] border-r h-screen p-4 relative">
-      <div className="flex">
+    <div className="hidden md:flex  flex-col w-[250px] dark:bg-[#171717] bg-[#E2E8F0] border-r h-screen p-4 relative">
+      <div className="flex justify-between">
         <div className="flex gap-2 h-fit">
           <Avatar>
             <AvatarImage src="/Images/logo.jpg" className="" alt="@shadcn" />
@@ -21,10 +52,13 @@ const Sidebar = () => {
             New chat
           </h1>
         </div>
+        <button onClick={handleClear} className="w-fit my-auto">
+            <NotebookPen strokeWidth={1.25} />
+        </button>
       </div>
       {user && <ChatArray />}
       {user ? (
-        <UserAvatar/>
+        <UserAvatar />
       ) : (
         <div className="flex absolute bottom-3 left-3 right-3 flex-col gap-y-2">
           <h2 className="text-[13px] dark:text-white font-semibold">
