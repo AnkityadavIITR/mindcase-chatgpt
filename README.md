@@ -1,6 +1,6 @@
 # ChatGPT Clone
 
-Welcome to the ChatGPT Clone! This repository is a clone of the popular OpenAI ChatGPT application, built using Next.js with Supabase for authentication and database backend, Zustand for state management, and the Gemini API for Large Language Model (LLM) responses.
+This repository is a clone of the popular OpenAI ChatGPT application, built using Next.js with Supabase for authentication and database backend, Zustand for state management, and the Gemini API for Large Language Model (LLM) responses, created for the assignment purpose.
 
 ## Table of Contents
 1. [Introduction](#introduction)
