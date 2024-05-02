@@ -82,7 +82,7 @@ const Form = ({ type }) => {
   };
   return (
     <div className="w-[350px] flex flex-col mt-10">
-      {showVerifyModal ? (
+      {!showVerifyModal ? (
         <>
           <div className="p-5">
             <h1 className="text-[30px] font-bold flex justify-center">
