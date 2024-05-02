@@ -14,7 +14,7 @@ const Chats = ({ chats, loading }) => {
       {chats?.map((chat) => {
         if (chat.role == "user") {
           return (
-            <div className="flex gap-x-5 w-[700px] " key={chat}>
+            <div className="flex gap-x-5 md:w-[500px] lg:w-[700px] " key={chat}>
               <Avatar>
                 <AvatarImage
                   src={user?.user_metadata.avatar_url}
@@ -28,7 +28,7 @@ const Chats = ({ chats, loading }) => {
           );
         } else {
           return (
-            <div className="flex gap-x-5 w-[700px]" key={chat}>
+            <div className="flex gap-x-5 md:w-[500px] lg:w-[700px]" key={chat}>
               <Avatar>
                 <AvatarImage
                   src={"/Images/logo.jpg"}

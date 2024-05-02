@@ -14,8 +14,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { useRouter } from "next/navigation";
 
 const Form = ({ type }) => {
+  const router = useRouter();
   const signInWithGoogle = useAuthStore((state) => state.signInwithGoogle);
   const signUpWithEmailAndPassword = useAuthStore(
     (state) => state.signUpWithEmailAndPassword
@@ -49,6 +51,9 @@ const Form = ({ type }) => {
             formik.values.password,
             setLoading
           );
+          router.push("/")
+
+          
         } catch (e) {
           console.log("login");
           console.log(e);
@@ -121,7 +126,7 @@ const Form = ({ type }) => {
                 </label>
               ) : (
                 <label
-                  className="pointer-events-none absolute top-0 left-3 mb-0 text-cus max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out -translate-y-[0.9rem] scale-[0.8] text-primary motion-reduce:transition-none"
+                  className="pointer-events-none absolute bg-white top-0 left-3 mb-0 text-cus max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out -translate-y-[0.9rem] scale-[0.8] text-primary motion-reduce:transition-none"
                   for="exampleInput90"
                 >
                   Email address
