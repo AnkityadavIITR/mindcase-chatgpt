@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/popover";
 import { Button } from "../ui/button";
 import { LogOut } from "lucide-react";
+import { Settings, } from "lucide-react";
 
 const UserAvatar = () => {
   const user = useAuthStore((state) => state.user);
@@ -32,17 +33,23 @@ const UserAvatar = () => {
           </h1>
         </PopoverTrigger>
 
-        <PopoverContent className="w-[230px] dark:bg-[#2f2f2f] px-4 py-3 flex flex-col gap-y-2">
+        <PopoverContent className="w-[230px] dark:bg-[#2f2f2f] px-4 py-3 flex flex-col gap-y-1">
           <h1 className="overflow-hidden text-[14px]">{user?.email}</h1>
           <hr className="h-px my-3 bg-[#666363] border-0" />
-          <div></div>
+          <Button
+            variant="ghost"
+            className="w-full hover:bg-[#f4eaea]  dark:hover:bg-[#424242] flex justify-start text-[15px] px-1"
+          >
+            <Settings size={20} strokeWidth={1.25} className="mr-2" />
+            settings
+          </Button>
           <hr className="h-px my-3 bg-[#666363] border-0 " />
           <Button
             variant="ghost"
             onClick={handleSignOut}
             className="w-full hover:bg-[#f4eaea]  dark:hover:bg-[#424242] flex justify-start"
           >
-            <LogOut strokeWidth={1.25} className="mr-2" size={20} />
+            <LogOut strokeWidth={1.25} className="mr-3" size={20} />
             Logout
           </Button>
         </PopoverContent>

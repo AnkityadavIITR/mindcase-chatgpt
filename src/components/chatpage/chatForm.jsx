@@ -14,8 +14,7 @@ import supabase from "@/lib/supabase";
 
 const MODEL_NAME = "gemini-1.0-pro";
 const API_KEY = process.env.NEXT_PUBLIC_GEMINI_KEY;
-const ChatForm = () => {
-  const [loading, setLoading] = useState(false);
+const ChatForm = ({loading,setLoading}) => {
   const [query, setQuery] = useState("");
   const [data, setData] = useState("");
 
@@ -136,7 +135,9 @@ const ChatForm = () => {
       role: "user",
       parts: [{ text: query }],
     });
+    setLoading(true)
     await runChat();
+    setLoading(false);
     if(user){
       await uploadChat();
     }

@@ -56,7 +56,7 @@ const Sidebar = () => {
             <NotebookPen strokeWidth={1.25} />
         </button>
       </div>
-      {user && <ChatArray />}
+      {user && <ChatArray globalChat={globalChat}/>}
       {user ? (
         <UserAvatar />
       ) : (

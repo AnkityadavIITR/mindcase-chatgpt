@@ -8,11 +8,13 @@ import Chats from "./Chats";
 const Chatscreen = () => {
   const chats=useChatStore((state)=>state.chats)
   const user = useAuthStore((state) => state.user);
-  console.log(chats);
+  const [loading, setLoading] = useState(false);
+
+  // console.log(chats);
   return (
     <div className="flex h-[80vh] w-full mx-auto">
       {chats && chats.length>0 ? (
-        <Chats chats={chats}/>
+        <Chats chats={chats} loading={loading}/>
       ) : (
         <div className="flex flex-col gap-y-5 justify-center items-center mx-auto h-fit my-auto">
           <div className="w-fit border-[1px] p-2 rounded-full border-[#fff] ">
@@ -33,7 +35,7 @@ const Chatscreen = () => {
           <h1 className="dark:text-white text-black justify-center">How can I help you today? </h1>
         </div>
       )}
-      <ChatForm />
+      <ChatForm loading={loading} setLoading={setLoading} />
     </div>
   );
 };
