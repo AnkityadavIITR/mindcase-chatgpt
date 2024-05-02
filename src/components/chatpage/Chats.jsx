@@ -12,7 +12,7 @@ const Chats = ({ chats, loading }) => {
     <div className="flex flex-col gap-y-8 mx-auto  mt-[60px] overflow-auto">
       {chats?.map((chat) => {
         if (chat.role == "user") {
-          return <div className="flex gap-x-5 w-[700px] " key={chat.id}>
+          return <div className="flex gap-x-5 w-[700px] " key={chat}>
             <Avatar>
               <AvatarImage
                 src={user?.user_metadata.avatar_url}
@@ -24,7 +24,7 @@ const Chats = ({ chats, loading }) => {
             <h1 className="max-w-[650px] my-auto">{chat?.parts[0]?.text}</h1>
           </div>
         } else {
-          return <div className="flex gap-x-5 w-[700px]">
+          return <div className="flex gap-x-5 w-[700px]" key={chat}>
           <Avatar>
             <AvatarImage
               src={"/Images/logo.jpg"}
