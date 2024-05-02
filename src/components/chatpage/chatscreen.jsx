@@ -12,7 +12,7 @@ const Chatscreen = () => {
 
   // console.log(chats);
   return (
-    <div className="flex h-[80vh] w-full mx-auto">
+    <div className="flex h-[80vh] w-full mx-auto overflow-auto">
       {chats && chats.length>0 ? (
         <Chats chats={chats} loading={loading}/>
       ) : (

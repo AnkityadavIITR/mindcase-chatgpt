@@ -22,7 +22,9 @@ const useAuthStore = create((set) => ({
       console.log(e);
     } 
   },
-  signUpWithEmailAndPassword: async (email, password) => {
+  signUpWithEmailAndPassword: async (email, password,setLoading,setShowVerifyModal) => {
+    setLoading(true);
+
     try {
       const { data, error } = await supabase.auth.signUp({
         email,
@@ -32,8 +34,11 @@ const useAuthStore = create((set) => ({
       if (error) throw error;
 
       set({ user });
+      setShowVerifyModal(true)
     } catch (error) {
       console.error("Sign up error:", error.message);
+    }finally {
+      setLoading(false);
     }
   },
 

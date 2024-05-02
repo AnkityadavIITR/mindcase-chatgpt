@@ -2,6 +2,31 @@
   @tailwind components;
   @tailwind utilities;
 
+  @layer utilities {
+    /* Custom scrollbar styling for WebKit-based browsers (Chrome, Safari, etc.) */
+    ::-webkit-scrollbar {
+      width: 8px; /* Slim scrollbar */
+    }
+  
+    ::-webkit-scrollbar-thumb {
+      background-color: inherit; /* Light gray thumb */
+      border-radius: 50px; /* Slightly rounded corners */
+    }
+  
+    ::-webkit-scrollbar-track {
+      background-color: inherit; /* Lighter track color */
+    }
+  
+    /* Custom scrollbar styling for Firefox */
+    * {
+      scrollbar-width: thin; /* Slim scrollbar in Firefox */
+      scrollbar-color: #A0AEC0 #E2E8F0; /* Thumb and track colors */
+    }
+    ::-webkit-scrollbar-button {
+      display: none; /* Hide scrollbar arrows/buttons */
+    }
+  }
+
   @layer base {
     :root {
       --background: 0 0% 100%;

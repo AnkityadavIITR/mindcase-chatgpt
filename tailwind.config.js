@@ -19,6 +19,8 @@ module.exports = {
     },
     extend: {
       colors: {
+        scrollbarThumb: '#1A202C', // Example thumb color (dark gray)
+        scrollbarTrack: '#CBD5E0', // Example track color (light gray)
         customGreen:"#10A37F",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -75,5 +77,17 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"),
+  function({addutilities}){
+    const newUtilities={
+      ".scrollbar-thin":{
+        scrollbarWidth:"thin",
+        scrollbarcolor:"rgb(31 29 29) white"
+      },
+      ".scrollbar-webkit":{
+
+      }
+    }
+  }
+],
 }
