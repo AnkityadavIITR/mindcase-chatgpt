@@ -67,6 +67,7 @@ const Form = ({ type }) => {
             setLoading,
             setShowVerifyModal
           );
+          console.log("show",showVerifyModal);
         } catch (e) {
           console.log("login");
           console.log(e);
@@ -272,7 +273,7 @@ const Form = ({ type }) => {
             <CardTitle>Verification link sent</CardTitle>
           </CardHeader>
           <CardContent>
-            <p>click on the verification link on email to continue</p>
+            <p>Check your email and click on the verification link to continue</p>
           </CardContent>
         </Card>
       )}

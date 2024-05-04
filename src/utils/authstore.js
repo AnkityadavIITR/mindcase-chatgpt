@@ -33,8 +33,8 @@ const useAuthStore = create((set) => ({
 
       if (error) throw error;
 
+      setShowVerifyModal(true);
       set({ user });
-      setShowVerifyModal(true)
     } catch (error) {
       console.error("Sign up error:", error.message);
     }finally {
